@@ -18,9 +18,11 @@ app.use("/api/workouts", workoutRoutes)
 
 //db connection
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(
+    "mongodb+srv://Test:123556645623qss@cluster0.cllantg.mongodb.net/workout-app?retryWrites=true&w=majority"
+  )
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(4000, () => {
       console.log("connected to db and listening on port", process.env.PORT)
     })
   })
