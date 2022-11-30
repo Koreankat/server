@@ -1,12 +1,14 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const workoutRoutes = require("./routes/workout")
+const bodyParser = require("body-parser")
 require("dotenv").config()
 
 // express app
 const app = express()
 
 //middleware
+app.use(bodyParser.json())
 app.use(express.json())
 app.use((req, res, next) => {
   console.log(req.path, req.method)
