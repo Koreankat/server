@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const bodyParser = require("body-parser")
 const {
   getAllWorkouts,
   getWorkout,
@@ -23,4 +24,5 @@ router.delete("/:id", deleteWorkout)
 //UPDATE workout
 router.patch("/:id", updateWorkout)
 
+router.use(bodyParser.json())
 module.exports = router
